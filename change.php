@@ -1,14 +1,16 @@
-<!doctype html>
-<html lang="en">
-<head>
-</head>
-<body>
 <?php
-    $number = 10;
-    echo $number;
+    // Constant
+    const MY_AGE = 35;
+    // MY_AGE = 39; - ERROR
+    echo MY_AGE . "<br>";
 
-    $num = 0;
-    echo $num . $number;
+    $number = 10; //integer
+    echo $number . "<br>";
+
+    $num = 0.67; //float
+    $word = "Variable"; //string
+    $bool = true; //boolean
+    echo $word . ": " . $num . " and " . $number;
+    $number2 = "5";
+    echo " Сумма: " . ($number + intval($number2)) . "<br>";
 ?>
-</body>
-</html>
