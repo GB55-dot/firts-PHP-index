@@ -4,46 +4,28 @@ require "block/header.php";
 ?>
 <h1>Home Page</h1>
 <?php
-  $lis = [19, 40, 29, 49];
-  unset($lis[1]);
-  $lis = array_values($lis);
-  rsort($lis);
-  shuffle($lis);
-  print_r($lis);
-  echo '<br>';
+//  $file = fopen('text.txt', "a");
+//  fwrite($file, "\n\nHello World!\nSome new text");
+//
+//  fclose($file);
 
-  if (in_array(8, $lis))
-    echo "Found";
-  else
-    echo "Not Found";
+$filename = 'text.txt';
+$file = fopen($filename, 'r');
+$content = fread($file, filesize($filename));
+echo '<pre>' .$content.'</pre><br>';
+fclose($file);
 
-  echo '<br>';
+// Додаткові функції
+file_put_contents('a.txt', "Example\nHello");
 
-  $new_list = array_slice($lis, 0, count($lis) - 2);
-  print_r($new_list);
-  echo '<br>';
+echo file_get_contents('a.txt'.'<br>');
 
-  $arr1 = [4, 8, 10];
-  $arr2 = [4, 20, 14]; 
-  $arr3 = array_merge($arr1, $arr2);
-  print_r($arr3);
-  echo '<br>';
+echo file_exists('a.txt'). '<Br>';
+rename('a.txt', 'new_name.txt');
+unlink('new_name.txt');
 
-  // Перевsірка типів даних
-  $x = '10';
-  echo gettype($x).'<br>';
-  echo is_numeric($x).'<br>';
-  echo is_integer($x).'<br>';
-  
-  // Робота з текстом
-
-   $word = "Example";
-   echo strpos($word, "xa"), '<br>';
-
-   $words = "john,alex,bob";
-   $arr_words = explode(",", $words);
-   print_r($arr_words);
-   echo '<br>'.implode(" | ", $arr_words);
-
+echo __FILE__; 
+echo fileperms(__FILE__);
+// chmod('text.txt');
   require_once "block/footer.php";
 ?>
