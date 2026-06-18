@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 if(isset($_GET['?_ijt'])) {
     $link = explode("?_ijt", $_SERVER['REQUEST_URI']);
     $redirect = "http://".$_SERVER['HTTP_HOST'].$link[0];
