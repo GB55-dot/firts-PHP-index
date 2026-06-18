@@ -1,3 +1,11 @@
+<?php
+if(isset($_GET['?_ijt'])) {
+    $link = explode("?_ijt", $_SERVER['REQUEST_URI']);
+    $redirect = "http://".$_SERVER['HTTP_HOST'].$link[0];
+    header('HTTP/1.1 301 Moved Permanently');
+    header('Location: '.$redirect);
+    exit;
+  }
 ?>
 <!doctype html>
 <html lang="en">
